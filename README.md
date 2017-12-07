@@ -11,13 +11,13 @@ This file file serves as your book's preface, a great place to describe your boo
 本书的各种源码、在线浏览地址、多种格式文件下载如下：
 
 ### Gitook源码
-* [crifan/http\_restful\_api: HTTP知识总结](https://github.com/crifan/http\_restful\_api)
+* [crifan/http\_restful\_api: HTTP后台端：RESTful API接口设计](https://github.com/crifan/http_restful_api)
 
 ### 在线浏览
-* [HTTP知识总结 book.crifan.com](http://book.crifan.com/books/http_summary/website)
-* [HTTP知识总结 crifan.github.io](https://crifan.github.io/http_summary/website)
+* [HTTP知识总结 book.crifan.com](http://book.crifan.com/books/http_restful_api/website)
+* [HTTP知识总结 crifan.github.io](https://crifan.github.io/http_restful_api/website)
 
 ### 离线下载阅读
-* [HTTP知识总结 PDF](http://book.crifan.com/books/http_summary/pdf/http_summary.pdf)
-* [HTTP知识总结 ePub](http://book.crifan.com/books/http_summary/epub/http_summary.epub)
-* [HTTP知识总结 Mobi](http://book.crifan.com/books/http_summary/mobi/http_summary.mobi)
+* [HTTP知识总结 PDF](http://book.crifan.com/books/http_restful_api/pdf/http_restful_api.pdf)
+* [HTTP知识总结 ePub](http://book.crifan.com/books/http_restful_api/epub/http_restful_api.epub)
+* [HTTP知识总结 Mobi](http://book.crifan.com/books/http_restful_api/mobi/http_restful_api.mobi)
