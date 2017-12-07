@@ -1,8 +1,5 @@
 # HTTP后台端：RESTful API接口设计
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
-
-
 ## 简介
 整理过[HTTP知识总结](http://book.crifan.com/books/http_summary/website)后，继续去整理`HTTP`的**后台**相关的技术。
 在服务器后台进行设计API接口时，目前最流行的风格（原则/标准/规范）就是**RESTful**。
