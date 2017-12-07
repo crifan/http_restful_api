@@ -11,7 +11,7 @@ This file file serves as your book's preface, a great place to describe your boo
 本书的各种源码、在线浏览地址、多种格式文件下载如下：
 
 ### Gitook源码
-* [crifan/http\_summary: HTTP知识总结](https://github.com/crifan/http_summary)
+* [crifan/http\_restful\_api: HTTP知识总结](https://github.com/crifan/http\_restful\_api)
 
 ### 在线浏览
 * [HTTP知识总结 book.crifan.com](http://book.crifan.com/books/http_summary/website)
