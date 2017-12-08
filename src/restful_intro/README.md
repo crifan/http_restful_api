@@ -41,7 +41,7 @@
 
 #### 无状态
 
-![](src/assets/img/stateless.png)
+![](/src/assets/img/stateless.png)
 
 
 
