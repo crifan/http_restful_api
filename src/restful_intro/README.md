@@ -4,7 +4,7 @@
 
 其中 `REST`=`REpresentational State Transfer`
 
-* `REST`直译为：表现层状态转移
+* `REST`直译：表现层状态转移
 
 * `REST`核心含义：
 
