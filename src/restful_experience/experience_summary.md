@@ -1,23 +1,38 @@
-# HTTP学习目的
+# 其他心得
 
-写此HTTP相关内容的教程，期望能对不同类型的人员达到不同的目标：
+## api中是否一定要加版本号？
+如果是为了设计长期稳定的API接口，则最好是加上版本号v1.0这种写法
+`http://[hostname]/todo/api/v1.0/`
+但是往往中小型项目不需要这么长期维护和不需要迭代太多版本，则可以考虑不需要版本号，则可以写成：
+`http://[hostname]/todo/api/`
+即可。
 
-- **普通用户**用浏览器上网
-  - 了解打开网址到页面显示背后的故事
-- \(iOS/Android\)**移动端开发**
-  - 了解用代码调用后台API接口时
-    - 知道HTTP的有哪些方法，GET/POST等，知道其大概用途
-    - 如何传递GET和POST时候的参数
-      - GET时的`query string`
-      - POST时的body的json
-  - 学习用`Postman`等工具去测试后台提供的接口
-- **后台人员**设计API接口
-  - 如何设计一个`RESTful`的API
-    - 减少不良风格的接口
-      - 比如：/getUser, /updateUser
-  - 学习用Postman等工具去测试自己写的API接口
-  - 学习如何用Postman等工具去生成API文档
-- **测试人员**
-  - 充分利用Postman等工具去实现接口的自动化测试
+另外了解到：
+有些的做法是把API的版本号v1，放到request header中。
+->github就是这么做的：[Media Types | GitHub Developer Guide](https://developer.github.com/v3/media/#request-specific-version)
+
+## 设计Restful的接口时，尽量用复数，且统一
+即，用`/artists`而不要用`/artist`
+
+## 如果有多个对象，用模块化逻辑，嵌套资源去设计接口
+举例：
+获取某个（内部id为8的）歌手的所有的专辑：
+`GET /artists/8/albums`
+
+## 当查询返回的数据多了则：paging分页
+如上，如果一个歌手的专辑太多，则应该使用分页`paging`
+
+## 是否一定要严格按照Restful的规则，用对应的http的method实现对应的功能？
+一般来说，不用非常严格的依照规则，尤其是
+* UPDATE/PATCH 去更新修改资源
+    * 往往为了简化，用PUT表示 更新修改资源即可
+
+不过，有些项目，对方本身就要求设计接口时，严格按照Restful的规则来设计，这时最好用UPDATE/PATCH去更新修改资源。
+
+其他的，见上面的表格总结，典型的是：
+* GET 获取资源
+* POST 新建资源
+* PUT 更新/修改 资源
+* DELETE 删除资源
 
 
