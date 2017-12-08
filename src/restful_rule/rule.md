@@ -15,11 +15,10 @@
 ## RESTful的某个类似于外卖的项目的API
 此处给出之前做过一个项目的RESTful的API，供参考：
 * 用户
-* * 获取用户ID：支持多个参数，根据参数不同返回对应的值
-* * `GET /v1.0/open/userId?type=phone&phone={phone}`
-* `GET /v1.0/open/userId?type=email&email={email}`
-
-* `GET /v1.0/open/userId?type=facebook&facebookUserId={facebookUserId}`
+    * 获取用户ID：支持多个参数，根据参数不同返回对应的值
+        * `GET /v1.0/open/userId?type=phone&phone={phone}`
+        * `GET /v1.0/open/userId?type=email&email={email}`
+        * `GET /v1.0/open/userId?type=facebook&facebookUserId={facebookUserId}`
 * 获取用户信息
 * * `GET /v1.0/users/{userId}`
 * 修改用户信息
