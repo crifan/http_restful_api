@@ -12,7 +12,7 @@
 | DELETE | Delete删除 | <ul><li>正常：</li><ul><li>200 (OK)</li><li>204 (No Content)</li></ul><li>异常：</li><ul><li>404 (Not Found)</li><li>405 (Method Not Allowed)</li></ul></ul> |  |
 
 
-## RESTful的某个类似于外卖的项目的API
+## 举例：RESTful的某个类似于外卖的项目的API
 此处给出之前做过一个项目的RESTful的API，供参考：
 * 用户
     * 获取用户ID：支持多个参数，根据参数不同返回对应的值
