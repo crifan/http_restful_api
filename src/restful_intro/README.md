@@ -37,11 +37,11 @@
 
 #### 有状态
 
-![](/assets/img/have_state.png)
+![](src/assets/img/have_state.png)
 
 #### 无状态
 
-![](/assets/img/stateless.png)
+![](src/assets/img/stateless.png)
 
 
 
