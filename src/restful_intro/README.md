@@ -4,7 +4,7 @@
 
 其中 `REST`=`REpresentational State Transfer`
 
-直译：表现层状态转移
+REST直译为：表现层状态转移
 
 * 核心含义：
 * * 无状态的资源
@@ -42,8 +42,4 @@
 #### 无状态
 
 ![](/src/assets/img/stateless.png)
-
-
-
-
 
