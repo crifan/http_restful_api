@@ -19,17 +19,17 @@
         * `GET /v1.0/open/userId?type=phone&phone={phone}`
         * `GET /v1.0/open/userId?type=email&email={email}`
         * `GET /v1.0/open/userId?type=facebook&facebookUserId={facebookUserId}`
-* 获取用户信息
-* * `GET /v1.0/users/{userId}`
-* 修改用户信息
-* * `PUT /v1.0/users/{userId}/info`
-* 修改密码
-* * `PUT /v1.0/users/{userId}/password`
+    * 获取用户信息
+        * `GET /v1.0/users/{userId}`
+    * 修改用户信息
+        * `PUT /v1.0/users/{userId}/info`
+    * 修改密码
+        * `PUT /v1.0/users/{userId}/password`
 * 订单
-* * 获取订单任务信息
-* * `GET /v1.0/tasks/{taskId}/users/{userId}`
-* 发布任务
-* * `POST /v1.0/tasks/users/{userId}`
-* 发单人确认任务信息
-* * `PUT /v1.0/tasks/{taskId}/users/{userId}/confirmInfo`
+    * 获取订单任务信息
+        * `GET /v1.0/tasks/{taskId}/users/{userId}`
+    * 发布任务
+        * `POST /v1.0/tasks/users/{userId}`
+    * 发单人确认任务信息
+        * `PUT /v1.0/tasks/{taskId}/users/{userId}/confirmInfo`
 
