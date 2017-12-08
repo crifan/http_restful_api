@@ -8,7 +8,7 @@
 | :--- | :--- | :--- | :--- |
 | POST | Create创建 | <ul><li>正常</li><ul><li>最常用：200 (OK)</li><li>不太常用：201 (Created)</li></ul><li>异常</li><ul><li>404 (Not Found)</li><li>409 (Conflict)</li></ul></ul>| |
 | GET | Read读取 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常：</li><ul><li>404 (Not Found)</li></ul></ul> |  |
-| PUT/UPDATE/PATCH | Update/Replace更新/替换 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常</li><ul><li>405 (Method Not Allowed)</li><li>204 (No Content)</li><li>404 (Not Found)</li></ul></ul> | PUT，UPDATE，PATCH 都常被用于 更新（已有的）某个资源，最最常用：PUT，另外也有用POST用作PUT去更新资源的 |
+| PUT/UPDATE/PATCH | Update/Replace更新/替换 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常</li><ul><li>405 (Method Not Allowed)</li><li>204 (No Content)</li><li>404 (Not Found)</li></ul></ul> | <ul><li>PUT，UPDATE，PATCH 都常被用于 更新（已有的）某个资源</li><li>最最常用：PUT，另外也有用POST用作PUT去更新资源的</li><ul> |
 | DELETE | Delete删除 | <ul><li>正常：</li><ul><li>200 (OK)</li><li>204 (No Content)</li></ul><li>异常：</li><ul><li>404 (Not Found)</li><li>405 (Method Not Allowed)</li></ul></ul> |  |
 
 
