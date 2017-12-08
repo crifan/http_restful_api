@@ -5,16 +5,14 @@
 其中 `REST`=`REpresentational State Transfer`
 
 * `REST`直译：表现层状态转移
-
 * `REST`核心含义：无状态的资源
-
-* 资源的变化（CURD）都是通过操作去实现的
-* * 资源可以用 [URI](https://en.wikipedia.org/wiki/Uniform_resource_identifier) 表示
-  * 用不同的URI和方法，表示对资源的不同操作
-  * * 典型的：
-    * * GET：获取资源
-      * POST：新建资源
-      * DELETE：删除资源
+  * 资源的变化（CURD）都是通过操作去实现的
+    * 资源可以用 [URI](https://en.wikipedia.org/wiki/Uniform_resource_identifier) 表示
+    * 用不同的URI和方法，表示对资源的不同操作
+      * 典型的：
+        * GET：获取资源
+        * POST：新建资源
+        * DELETE：删除资源
 
 ### RESTful的通俗理解
 
