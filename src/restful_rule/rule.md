@@ -4,11 +4,7 @@
 
 用对应的接口表示要对资源进行何种操作，想要实现什么目的：
 
-| HTTP Verb=HTTP方法 |
-| :--- |
-
-
-|  | 操作类型=CRUD | 返回 | 说明 | 举例 |
+| HTTP Verb=HTTP方法 | 操作类型=CRUD | 返回 | 说明 | 举例 |
 | :--- | :--- | :--- | :--- | :--- |
 | POST | Create创建 | 正常最常用：200 \(OK\)不太常用：201 \(Created\)异常404 \(Not Found\)409 \(Conflict\) |   | POST[http://www.example.com/customers](http://www.example.com/customers)POST[http://www.example.com/customers/12345/orders](http://www.example.com/customers/12345/orders) |
 | GET | Read读取 | 正常：200 \(OK\)异常：404 \(Not Found\) |   | GET[http://www.example.com/customers/12345](http://www.example.com/customers/12345)GET[http://www.example.com/customers/12345/orders](http://www.example.com/customers/12345/orders)GET[http://www.example.com/buckets/sample](http://www.example.com/buckets/sample) |
