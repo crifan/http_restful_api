@@ -20,7 +20,7 @@
 
 ### 离线下载阅读
 
-* [HTTP后台端：RESTful API接口设计 PDF](http://book.crifan.com/books/http_restful_api/pdf/http_restful_api.pdf)
+* [\[PDF\]HTTP后台端：RESTful API接口设计](http://book.crifan.com/books/http_restful_api/pdf/http_restful_api.pdf)
 * [HTTP后台端：RESTful API接口设计 ePub](http://book.crifan.com/books/http_restful_api/epub/http_restful_api.epub)
 * [HTTP后台端：RESTful API接口设计 Mobi](http://book.crifan.com/books/http_restful_api/mobi/http_restful_api.mobi)
 
