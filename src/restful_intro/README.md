@@ -4,9 +4,10 @@
 
 其中 `REST`=`REpresentational State Transfer`
 
-REST直译为：表现层状态转移
+* `REST`直译为：表现层状态转移
 
-* 核心含义：
+* `REST`核心含义：
+
 * * 无状态的资源
   * 资源的变化（CURD）都是通过操作去实现的
   * * 资源可以用 [URI](https://en.wikipedia.org/wiki/Uniform_resource_identifier) 表示
