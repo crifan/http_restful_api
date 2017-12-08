@@ -49,7 +49,7 @@ DELETE      http://[hostname]/todo/api/v1.0/tasks/[task_id]  删除任务
 ==========  ================================================ =============
 ```
 
-更多细节详见：【整理】TodoList待办事项：常被用于解释一个概念和框架如何应用）
+更多细节详见：**【整理】TodoList待办事项：常被用于解释一个概念和框架如何应用）**
 
 ## RESTful的某个类似于外卖的项目的API
 
@@ -60,19 +60,18 @@ DELETE      http://[hostname]/todo/api/v1.0/tasks/[task_id]  删除任务
 
     * `GET /v1.0/open/userId?type=facebook&facebookUserId={facebookUserId}`
   * 获取用户信息
-  * * `GET /v1.0/users/{userId}`
+  * * `GET /v1.0/users/{userId}`
   * 修改用户信息
-  * * `PUT /v1.0/users/{userId}/info`
+  * * `PUT /v1.0/users/{userId}/info`
   * 修改密码
-  * * `PUT /v1.0/users/{userId}/password`
+  * * `PUT /v1.0/users/{userId}/password`
 * 订单
 * * 获取订单任务信息
-  * * `GET /v1.0/tasks/{taskId}/users/{userId}`
+  * * `GET /v1.0/tasks/{taskId}/users/{userId}`
   * 发布任务
-  * * `POST /v1.0/tasks/users/{userId}`
+  * * `POST /v1.0/tasks/users/{userId}`
   * 发单人确认任务信息
-  * * `PUT /v1.0/tasks/{taskId}/users/{userId}/confirmInfo`
+  * * `PUT /v1.0/tasks/{taskId}/users/{userId}/confirmInfo`
 
-  
 
 

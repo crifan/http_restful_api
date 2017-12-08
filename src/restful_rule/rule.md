@@ -1,45 +1,21 @@
-# HTTP的工具和库
-## HTTP开发和调试工具
-### Postman
-可用于服务器端和其他移动端等，调试接口数据返回是否正常
+# 通用设计规则
 
-详见：【整理】API接口调试利器：Postman
+资源：往往对应着后台系统中对象，比如一个用户User，一个待办事项todo item，一个任务Task等等
 
-举例：比如用Postman去调试奶牛云的后台的登录接口：
+用对应的接口表示要对资源进行何种操作，想要实现什么目的：
 
-![](../assets/img/38CFDEB6-8637-4C7C-AC2E-14C7F3AD9B5A.png)
+| HTTP Verb=HTTP方法 |
+| :--- |
 
-### Chrome的开发者工具Developer Tools
-调试页面内容是否正常，包括布局，参数等等
 
-详见：[【总结】浏览器中的开发人员工具（IE9的F12和Chrome的Ctrl+Shift+I）-网页分析的利器](https://www.crifan.com/browser_developer_tool_chrome_vs_ie9/)
+|  | 操作类型=CRUD | 返回 | 说明 | 举例 |
+| :--- | :--- | :--- | :--- | :--- |
+| POST | Create创建 | 正常最常用：200 \(OK\)不太常用：201 \(Created\)异常404 \(Not Found\)409 \(Conflict\) |   | POST[http://www.example.com/customers](http://www.example.com/customers)POST[http://www.example.com/customers/12345/orders](http://www.example.com/customers/12345/orders) |
+| GET | Read读取 | 正常：200 \(OK\)异常：404 \(Not Found\) |   | GET[http://www.example.com/customers/12345](http://www.example.com/customers/12345)GET[http://www.example.com/customers/12345/orders](http://www.example.com/customers/12345/orders)GET[http://www.example.com/buckets/sample](http://www.example.com/buckets/sample) |
+| PUT/UPDATE/PATCH | Update/Replace更新/替换 | 正常：200 \(OK\)异常405 \(Method Not Allowed\)204 \(No Content\)404 \(Not Found\) | PUT，UPDATE，PATCH 都常被用于 更新（已有的）某个资源，最最常用：PUT，另外也有用POST用作PUT去更新资源的 | PUT[http://www.example.com/customers/12345](http://www.example.com/customers/12345)PUT[http://www.example.com/customers/12345/orders/98765](http://www.example.com/customers/12345/orders/98765)PUT[http://www.example.com/buckets/secret\_stuff](http://www.example.com/buckets/secret_stuff) |
+| DELETE | Delete删除 | 正常：200 \(OK\)204 \(No Content\)异常：404 \(Not Found\)405 \(Method Not Allowed\) |   | DELETE[http://www.example.com/customers/12345](http://www.example.com/customers/12345)DELETE[http://www.example.com/customers/12345/orders](http://www.example.com/customers/12345/orders)DELETE[http://www.example.com/bucket/sample](http://www.example.com/bucket/sample) |
 
-### curl
-模拟去请求服务器数据
 
-### Httpbin
-详见：【整理】Httpbin免费提供HTTP请求和响应的测试网站
 
-## HTTP的代码方面的库
-### iOS的swift／OC
-* 第三方：
-    * [Alamofire](https://github.com/Alamofire/Alamofire)
-* swift
-    * [SwiftHTTP](https://github.com/daltoniam/SwiftHTTP)
 
-### Python
-* 内置：
-    * [urllib](https://docs.python.org/2/library/urllib.html)
-    * [urllib2](https://docs.python.org/2/library/urllib2.html)
-* 第三方：
-    * [Requests](https://github.com/requests/requests)
 
-### Javascript
-* [Request](https://github.com/request/request)
-* [axios](https://github.com/mzabriskie/axios)
-* [Web API的Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-    * [window.fetch polyfill](https://github.com/github/fetch)
-* [SuperAgent](https://github.com/visionmedia/superagent)
-
-### C&#35;
-- [HttpWebRequest](https://msdn.microsoft.com/en-us/library/system.net.httpwebrequest&#40;v=vs.110&#41;.aspx)
