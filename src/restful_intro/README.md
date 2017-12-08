@@ -37,7 +37,7 @@
 
 #### 有状态
 
-![](./src/assets/img/have_state.png)
+![](src/assets/img/have_state.png)
 
 #### 无状态
 
