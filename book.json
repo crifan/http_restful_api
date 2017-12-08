@@ -1,6 +1,6 @@
 {
-  "title": "HTTP知识总结",
-  "description": "总结HTTP方面的技术供参考和学习",
+  "title": "HTTP后台端：RESTful API接口设计",
+  "description": "总结HTTP后台方面的RESTful API方面的知识",
   "author": "Crifan Li <admin@crifan.com>",
   "language": "zh-hans",
   "gitbook": "3.2.3",
@@ -115,12 +115,12 @@
       "wechatText": "微信打赏给Crifan"
     },
     "sitemap-general": {
-      "prefix": "https://book.crifan.com/gitbook/http_summary/website/"
+      "prefix": "https://book.crifan.com/gitbook/http_restful_api/website/"
     },
     "toolbar-button": {
       "icon": "fa-file-pdf-o",
       "label": "下载PDF",
-      "url": "http://book.crifan.com/books/http_summary/pdf/http_summary.pdf"
+      "url": "http://book.crifan.com/books/http_restful_api/pdf/http_restful_api.pdf"
     }
   }
 }
