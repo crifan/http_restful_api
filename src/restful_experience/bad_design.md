@@ -22,8 +22,8 @@
 * `DELETE /cowfarm/employee`
   * body中包含json参数
     * ```{"id": xxx}```
-    * 表示删除用户
-    * 且返回值中，message，code应该正常返回，data就没必要返回了。
+  * 表示删除用户
+  * 且返回值中，message，code应该正常返回，data就没必要返回了。
 
 ## 非改动资源的操作却设计为POST/PUT等方法
 对于没有新增/更新/删除等去改动和影响资源的操作，HTTP的方法却设计为POST/PUT等
