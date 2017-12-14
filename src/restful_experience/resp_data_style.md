@@ -18,28 +18,28 @@
 创建用户
 `POST /v1.0/open/register`
 返回：
-```json
-{
-  "code": 200,
-  "message": "new user has created”,
-  "data": {
-    "id": "user-4d51faba-97ff-4adf-b256-40d7c9c68103",
-    "firstName": "crifan",
-    "lastName": "Li",
-    "password": "654321",
-    "phone": "13511112222",
-    "createdAt": "2016-10-24T20:39:46",
-    "updatedAt": "2016-10-24T20:39:46"
-...
+````json
+  {
+    "code": 200,
+    "message": "new user has created",
+    "data": {
+      "id": "user-4d51faba-97ff-4adf-b256-40d7c9c68103",
+      "firstName": "crifan",
+      "lastName": "Li",
+      "password": "654321",
+      "phone": "13511112222",
+      "createdAt": "2016-10-24T20:39:46",
+      "updatedAt": "2016-10-24T20:39:46"
+      ......
+    }
   }
-}
-```
+````
 
 2. code是401
-```json
+````json
 {
-  "code": 401,
-  "message": "invalid access token: wrong or expired"
+    "code": 401,
+    "message": "invalid access token: wrong or expired"
 }
-```
+````
 

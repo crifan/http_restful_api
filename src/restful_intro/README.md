@@ -17,9 +17,9 @@
 ### RESTful的通俗理解
 
 借用[某人](https://www.zhihu.com/question/28557115/answer/41267240)的总结：
-* 看`url`就知道`要什么`
-* 看`http method`就知道`干什么`
-* 看`http status code`就知道`结果如何`
+* 看`url`就知道**要什么**
+* 看`http method`就知道**干什么**
+* 看`http status code`就知道**结果如何**
 
 ### 其他类型的接口设计风格\(含RESTful\)
 

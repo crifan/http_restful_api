@@ -108,11 +108,17 @@ Pagination的对象中，最常用到的属性就是：
 
 ## POST时body中无参数时不应该添加`Content-Type:application/json`的Header
 比如POST时,如果没有Body内容参数传递时，Header中就不要包含 `Content-Type:application/json`
+
 否则，某些服务器就会返回错误。
+
 比如Flask的Flask-Restful的接口就会自动返回：
+
 `code = 0 message = Failed to decode JSON object: No JSON object could be decoded`
+
 -》其意思是，你指定了
+
 `Content-Type:application/json`
+
 所以框架就会去尝试从Body中找JSON字符串，去解析参数
-但是发现Body是空的，没有可用的JSON字符串待解析
-所以报这个错误。
+
+但是发现Body是空的，没有可用的JSON字符串待解析，所以报这个错误。

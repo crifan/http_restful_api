@@ -63,6 +63,7 @@ PDF_FULLNAME = $(PDF_PATH)/$(PDF_NAME)
 EPUB_FULLNAME = $(EPUB_PATH)/$(EPUB_NAME)
 MOBI_FULLNAME = $(MOBI_PATH)/$(MOBI_NAME)
 
+.DEFAULT_GOAL := all
 
 .PHONY : debug_dir debug
 .PHONY : help
@@ -150,18 +151,26 @@ debug: clean_debug create_folder_debug
 
 ## Generate gitbook website
 website: clean_website create_folder_website
+	@echo ================================================================================
+	@echo Generate website for $(BOOK_NAME)
 	gitbook build $(CURRENT_DIR_NOSLASH) $(WEBSITE_FULLNAME)
 
 ## Generate PDF file
 pdf: clean_pdf create_folder_pdf
+	@echo ================================================================================
+	@echo Generate PDF for $(BOOK_NAME)
 	gitbook pdf $(CURRENT_DIR_NOSLASH) $(PDF_FULLNAME)
 
 ## Generate ePub file
 epub: clean_epub create_folder_epub
+	@echo ================================================================================
+	@echo Generate ePub for $(BOOK_NAME)
 	gitbook epub $(CURRENT_DIR_NOSLASH) $(EPUB_FULLNAME)
 
 ## Generate Mobi file
 mobi: clean_mobi create_folder_mobi
+	@echo ================================================================================
+	@echo Generate Mobi for $(BOOK_NAME)
 	gitbook mobi $(CURRENT_DIR_NOSLASH) $(MOBI_FULLNAME)
 
 ## Generate all files: website/pdf/epub/mobi
