@@ -1,3 +1,3 @@
-# HTTP详解
+# RESTful API工具和库
 
-接下来详细解释HTTP的结构和组成。
+下面介绍和RESTful API开发、设计时相关的一些工具、库。

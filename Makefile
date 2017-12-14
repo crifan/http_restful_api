@@ -22,7 +22,7 @@ endef
 # Output current makefile info
 ################################################################################
 Author=crifan.com
-Version=20171207
+Version=20171213
 Function=Auto use gitbook to generated files: website/pdf/epub/mobi
 RunHelp = Run 'make help' to see usage
 $(info --------------------------------------------------------------------------------)
@@ -65,7 +65,7 @@ MOBI_FULLNAME = $(MOBI_PATH)/$(MOBI_NAME)
 
 .PHONY : debug_dir
 .PHONY : help
-.PHONY : create_foler_all create_foler_website create_foler_pdf create_foler_epub create_foler_mobi
+.PHONY : create_folder_all create_folder_website create_folder_pdf create_folder_epub create_folder_mobi
 .PHONY : clean_all clean_website clean_pdf clean_epub clean_mobi
 .PHONY : all website pdf epub mobi
 
@@ -86,26 +86,26 @@ debug_dir:
 	@echo PDF_FULLNAME=$(PDF_FULLNAME)
 
 ################################################################################
-# Create Folder
+# Create folder
 ################################################################################
 ## Create folder for gitbook website
-create_foler_website: 
+create_folder_website: 
 	mkdir -p $(WEBSITE_PATH)
 
 ## Create folder for pdf
-create_foler_pdf: 
+create_folder_pdf: 
 	mkdir -p $(PDF_PATH)
 
 ## Create folder for epub
-create_foler_epub: 
+create_folder_epub: 
 	mkdir -p $(EPUB_PATH)
 
 ## Create folder for mobi
-create_foler_mobi: 
+create_folder_mobi: 
 	mkdir -p $(MOBI_PATH)
 
 ## Create folder for all: website/pdf/epub/mobi
-create_foler_all: create_foler_website create_foler_pdf create_foler_epub create_foler_mobi
+create_folder_all: create_folder_website create_folder_pdf create_folder_epub create_folder_mobi
 
 ################################################################################
 # Clean
@@ -133,19 +133,19 @@ clean_all: clean_website clean_pdf clean_epub clean_mobi
 # Generate Files
 ################################################################################
 ## Generate gitbook website
-website: clean_website create_foler_website
+website: clean_website create_folder_website
 	gitbook build $(CURRENT_DIR_NOSLASH) $(WEBSITE_FULLNAME)
 
 ## Generate PDF file
-pdf: clean_pdf create_foler_pdf
+pdf: clean_pdf create_folder_pdf
 	gitbook pdf $(CURRENT_DIR_NOSLASH) $(PDF_FULLNAME)
 
 ## Generate ePub file
-epub: clean_epub create_foler_epub
+epub: clean_epub create_folder_epub
 	gitbook epub $(CURRENT_DIR_NOSLASH) $(EPUB_FULLNAME)
 
 ## Generate Mobi file
-mobi: clean_mobi create_foler_mobi
+mobi: clean_mobi create_folder_mobi
 	gitbook mobi $(CURRENT_DIR_NOSLASH) $(MOBI_FULLNAME)
 
 ## Generate all files: website/pdf/epub/mobi

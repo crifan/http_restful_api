@@ -1,23 +1,26 @@
-# HTTP学习目的
+# 用Postman生成API文档
+步骤：
+1. Collection
+2. 鼠标移动到某个Collection
+3. 点击 三个点
+4. Publish Docs
+5. Publish
+6. Public URL
+7. 别人打开这个Public URL即可查看API文档
 
-写此HTTP相关内容的教程，期望能对不同类型的人员达到不同的目标：
+效果：
 
-- **普通用户**用浏览器上网
-  - 了解打开网址到页面显示背后的故事
-- \(iOS/Android\)**移动端开发**
-  - 了解用代码调用后台API接口时
-    - 知道HTTP的有哪些方法，GET/POST等，知道其大概用途
-    - 如何传递GET和POST时候的参数
-      - GET时的`query string`
-      - POST时的body的json
-  - 学习用`Postman`等工具去测试后台提供的接口
-- **后台人员**设计API接口
-  - 如何设计一个`RESTful`的API
-    - 减少不良风格的接口
-      - 比如：/getUser, /updateUser
-  - 学习用Postman等工具去测试自己写的API接口
-  - 学习如何用Postman等工具去生成API文档
-- **测试人员**
-  - 充分利用Postman等工具去实现接口的自动化测试
+![](../assets/img/postman_generated_api_doc.png)
 
+详见：
+【整理】API接口调试利器：Postman
 
+* 优点：
+  * 方便
+    * 因为本身往往已用Postman调试接口，调试完毕后，即可发布
+  * 及时更新文档
+    * 同理，在后台代码更新后，用Postman调试无误后，即可再次点击发布即可，无须手动修改API文档
+  * 美观
+    * Postman生成的在线的API文档已足够清晰和美观
+* 缺点：
+  * 必须依赖于在Postman中调试接口

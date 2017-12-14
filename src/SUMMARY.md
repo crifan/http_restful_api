@@ -15,6 +15,6 @@
 * [RESTful API心得和经验](restful_experience/README.md)
   * [不好的设计风格](restful_experience/bad_design.md)
   * [返回数据的格式和风格](restful_experience/resp_data_style.md)
-  * [其他心得](restful_experience/experience_summary.md)
+  * [其他心得](restful_experience/experience_other.md)
 * [附录](appendix/README.md)
   * [参考资料](appendix/reference.md)

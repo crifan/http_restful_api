@@ -1,23 +1,20 @@
-# HTTP学习目的
+# 用Swagger写（设计API接口的同时就可以生成出）API文档
 
-写此HTTP相关内容的教程，期望能对不同类型的人员达到不同的目标：
+效果：
+[API Development Tools | Swagger Editor | Swagger](https://swagger.io/swagger-editor/)
 
-- **普通用户**用浏览器上网
-  - 了解打开网址到页面显示背后的故事
-- \(iOS/Android\)**移动端开发**
-  - 了解用代码调用后台API接口时
-    - 知道HTTP的有哪些方法，GET/POST等，知道其大概用途
-    - 如何传递GET和POST时候的参数
-      - GET时的`query string`
-      - POST时的body的json
-  - 学习用`Postman`等工具去测试后台提供的接口
-- **后台人员**设计API接口
-  - 如何设计一个`RESTful`的API
-    - 减少不良风格的接口
-      - 比如：/getUser, /updateUser
-  - 学习用Postman等工具去测试自己写的API接口
-  - 学习如何用Postman等工具去生成API文档
-- **测试人员**
-  - 充分利用Postman等工具去实现接口的自动化测试
+![](../assets/img/swagger_generated_api_doc.png)
 
+详见：
+【整理】swagger OpenAPI
+
+* 优点：
+  * 设计API接口的同时就是编写好了API文档
+    * 因为有对应的工具可以直接生成API文档
+  * 另外可以同时生成服务器端和客户端的代码
+    * 剩下的只需要自己编写业务逻辑即可，支持N多种编程语言
+  * 美观
+    * 生成的API文档层次够清晰，够美观
+* 缺点：
+  * 必须用swagger去设计和编写API文档
 
