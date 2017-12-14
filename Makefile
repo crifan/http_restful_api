@@ -46,7 +46,8 @@ CURRENT_DIR_NAME := $(notdir $(MAKEFILE_DIR_PATSUBST))
 
 BOOK_NAME := $(CURRENT_DIR_NAME)
 
-OUTPUT_PATH = $(CURRENT_DIR_NOSLASH)/output
+OUTPUT_FOLDER = output
+OUTPUT_PATH = $(CURRENT_DIR_NOSLASH)/$(OUTPUT_FOLDER)
 DEBUG_PATH = $(CURRENT_DIR_NOSLASH)/debug
 
 WEBSITE_PATH = $(OUTPUT_PATH)/website/
@@ -176,6 +177,12 @@ mobi: clean_mobi create_folder_mobi
 ## Generate all files: website/pdf/epub/mobi
 all: website pdf epub mobi
 
+################################################################################
+# Compress
+################################################################################
+
+zip:
+	zip -r $(BOOK_NAME).zip $(OUTPUT_FOLDER)
 
 ################################################################################
 # Help
