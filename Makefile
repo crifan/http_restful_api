@@ -22,7 +22,7 @@ endef
 # Output current makefile info
 ################################################################################
 Author=crifan.com
-Version=20171213
+Version=20171214
 Function=Auto use gitbook to generated files: website/pdf/epub/mobi
 RunHelp = Run 'make help' to see usage
 $(info --------------------------------------------------------------------------------)
@@ -47,6 +47,7 @@ CURRENT_DIR_NAME := $(notdir $(MAKEFILE_DIR_PATSUBST))
 BOOK_NAME := $(CURRENT_DIR_NAME)
 
 OUTPUT_PATH = $(CURRENT_DIR_NOSLASH)/output
+DEBUG_PATH = $(CURRENT_DIR_NOSLASH)/debug
 
 WEBSITE_PATH = $(OUTPUT_PATH)/website/
 PDF_PATH = $(OUTPUT_PATH)/pdf/
@@ -63,13 +64,13 @@ EPUB_FULLNAME = $(EPUB_PATH)/$(EPUB_NAME)
 MOBI_FULLNAME = $(MOBI_PATH)/$(MOBI_NAME)
 
 
-.PHONY : debug_dir
+.PHONY : debug_dir debug
 .PHONY : help
 .PHONY : create_folder_all create_folder_website create_folder_pdf create_folder_epub create_folder_mobi
 .PHONY : clean_all clean_website clean_pdf clean_epub clean_mobi
 .PHONY : all website pdf epub mobi
 
-## [Debug] Dispay current directory related info
+## Print current directory related info
 debug_dir:
 	@echo MAKEFILE_LIST=$(MAKEFILE_LIST)
 	@echo MAKEFILE_LIST=$(value MAKEFILE_LIST)
@@ -88,6 +89,11 @@ debug_dir:
 ################################################################################
 # Create folder
 ################################################################################
+
+## Create folder for gitbook local debug
+create_folder_debug: 
+	mkdir -p $(DEBUG_PATH)
+
 ## Create folder for gitbook website
 create_folder_website: 
 	mkdir -p $(WEBSITE_PATH)
@@ -110,6 +116,11 @@ create_folder_all: create_folder_website create_folder_pdf create_folder_epub cr
 ################################################################################
 # Clean
 ################################################################################
+
+## Clean gitbook debug
+clean_debug:
+	-rm -rf $(DEBUG_PATH)
+
 ## Clean generated gitbook website whole folder
 clean_website:
 	-rm -rf $(WEBSITE_PATH)
@@ -132,6 +143,11 @@ clean_all: clean_website clean_pdf clean_epub clean_mobi
 ################################################################################
 # Generate Files
 ################################################################################
+
+## Debug gitbook
+debug: clean_debug create_folder_debug
+	gitbook serve $(CURRENT_DIR_NOSLASH) $(DEBUG_PATH)
+
 ## Generate gitbook website
 website: clean_website create_folder_website
 	gitbook build $(CURRENT_DIR_NOSLASH) $(WEBSITE_FULLNAME)
@@ -156,7 +172,7 @@ all: website pdf epub mobi
 # Help
 ################################################################################
 
-TARGET_MAX_CHAR_NUM=20
+TARGET_MAX_CHAR_NUM=25
 ## Show help
 help:
 	@echo ''
