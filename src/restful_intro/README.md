@@ -23,10 +23,10 @@
 
 ### 其他类型的接口设计风格\(含RESTful\)
 
-* `ROA`=Resource Oriented Architecture
-* `RPC`=Remote Procedure Call
-* `SOA`=Simple Object Access Protocol
-* `REST`=REpresentational State Transfer
+* `ROA`=`Resource Oriented Architecture`
+* `RPC`=`Remote Procedure Call`
+* `SOA`=`Simple Object Access Protocol`
+* `REST`=`REpresentational State Transfer`
 
 ### 关于无状态的解释
 

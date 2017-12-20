@@ -27,3 +27,4 @@ node_modules
 output/
 debug/
 *.zip
+sshpass_password.txt

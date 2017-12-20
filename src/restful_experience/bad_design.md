@@ -32,9 +32,9 @@
 
 比如，不好的做法：
 * 通过id获取task信息：POST /task 
-  * body参数：```{ "id": "1234" }```
+  * body参数：`{ "id": "1234" }`
 * 查询出符合条件的任务：`POST /task/query`
-  * 参数放在body中 ```{"keyword”:”xxx”, “start”: 0, “limit”: 10}```
+  * 参数放在body中 `{"keyword”:”xxx”, “start”: 0, “limit”: 10}`
 应该改为正常的做法：
 * `GET /task/{id}`
   * 或：`GET /task?id=1234`

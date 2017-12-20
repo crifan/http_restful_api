@@ -22,7 +22,7 @@ endef
 # Output current makefile info
 ################################################################################
 Author=crifan.com
-Version=20171214
+Version=20171220
 Function=Auto use gitbook to generated files: website/pdf/epub/mobi
 RunHelp = Run 'make help' to see usage
 $(info --------------------------------------------------------------------------------)
@@ -46,18 +46,20 @@ CURRENT_DIR_NAME := $(notdir $(MAKEFILE_DIR_PATSUBST))
 
 BOOK_NAME := $(CURRENT_DIR_NAME)
 
-OUTPUT_FOLDER = output
-OUTPUT_PATH = $(CURRENT_DIR_NOSLASH)/$(OUTPUT_FOLDER)
+OUTPUT_FOLDER_NAME = output
+OUTPUT_PATH = $(CURRENT_DIR_NOSLASH)/$(OUTPUT_FOLDER_NAME)/$(BOOK_NAME)
 DEBUG_PATH = $(CURRENT_DIR_NOSLASH)/debug
 
-WEBSITE_PATH = $(OUTPUT_PATH)/website/
-PDF_PATH = $(OUTPUT_PATH)/pdf/
-EPUB_PATH = $(OUTPUT_PATH)/epub/
-MOBI_PATH = $(OUTPUT_PATH)/mobi/
+WEBSITE_PATH = $(OUTPUT_PATH)/website
+PDF_PATH = $(OUTPUT_PATH)/pdf
+EPUB_PATH = $(OUTPUT_PATH)/epub
+MOBI_PATH = $(OUTPUT_PATH)/mobi
 
 PDF_NAME = $(BOOK_NAME).pdf
 EPUB_NAME = $(BOOK_NAME).epub
 MOBI_NAME = $(BOOK_NAME).mobi
+
+# ZIP_NAME = $(BOOK_NAME).zip
 
 WEBSITE_FULLNAME = $(WEBSITE_PATH)
 PDF_FULLNAME = $(PDF_PATH)/$(PDF_NAME)
@@ -83,6 +85,8 @@ debug_dir:
 	@echo CURRENT_DIR=$(CURRENT_DIR)
 	@echo CURRENT_DIR_NOSLASH=$(CURRENT_DIR_NOSLASH)
 	@echo CURRENT_DIR_NAME=$(CURRENT_DIR_NAME)
+	@echo BOOK_NAME=$(BOOK_NAME)
+	@echo OUTPUT_PATH=$(OUTPUT_PATH)
 	@echo WEBSITE_PATH=$(WEBSITE_PATH)
 	@echo WEBSITE_FULLNAME=$(WEBSITE_FULLNAME)
 	@echo PDF_PATH=$(PDF_PATH)
@@ -177,12 +181,31 @@ mobi: clean_mobi create_folder_mobi
 ## Generate all files: website/pdf/epub/mobi
 all: website pdf epub mobi
 
-################################################################################
-# Compress
-################################################################################
+# ################################################################################
+# # Compress
+# ################################################################################
 
-zip:
-	zip -r $(BOOK_NAME).zip $(OUTPUT_FOLDER)
+# ## Compress all generated files to single zip file
+# zip:
+# 	zip -r $(ZIP_NAME) $(OUTPUT_PATH)
+
+# ## Clean compressed file
+# clean_zip:
+# 	-rm -rf $(ZIP_NAME)
+
+################################################################################
+# Upload to server
+################################################################################
+PASSWORD_FILE=sshpass_password.txt
+REMOTE_USER=root
+REMOTE_SERVER=45.79.205.194
+REMOTE_BOOKS_PATH=/home/wwwroot/book.crifan.com/books
+# REMOTE_PATH=$(REMOTE_BOOKS_PATH)/$(BOOK_NAME)
+REMOTE_PATH=$(REMOTE_BOOKS_PATH)
+
+## upload all genereted website/pdf/epub/mobi files to remote server using rsync
+upload:
+	sshpass -f $(PASSWORD_FILE) rsync -avz --progress --delete --force $(OUTPUT_PATH) $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_PATH)
 
 ################################################################################
 # Help
