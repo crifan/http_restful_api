@@ -203,9 +203,9 @@ REMOTE_BOOKS_PATH=/home/wwwroot/book.crifan.com/books
 # REMOTE_PATH=$(REMOTE_BOOKS_PATH)/$(BOOK_NAME)
 REMOTE_PATH=$(REMOTE_BOOKS_PATH)
 
-## upload all genereted website/pdf/epub/mobi files to remote server using rsync
+## upload all genereted website/pdf/epub/mobi files to remote server using rsync. create sshpass_password.txt file to contain password before use this
 upload:
-	sshpass -f $(PASSWORD_FILE) rsync -avz --progress --delete --force $(OUTPUT_PATH) $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_PATH)
+	sshpass -f $(PASSWORD_FILE) rsync -avzh --progress --stats --delete --force $(OUTPUT_PATH) $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_PATH)
 
 ################################################################################
 # Help
