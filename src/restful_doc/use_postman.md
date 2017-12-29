@@ -12,8 +12,7 @@
 
 ![](../assets/img/postman_generated_api_doc.png)
 
-详见：
-【整理】API接口调试利器：Postman
+详见教程：[API开发利器：Postman](http://book.crifan.com/books/api_tool_postman/website)
 
 * **优点**：
   * 方便

@@ -3,7 +3,7 @@
 如果你是后台API开发人员，往往会为了写清晰的API接口文档而发愁
 此处，自己的建议和经验是：
 * 方法1: 用`markdown`写API文档
-* 方法2: 用`Postman`生成API文档
+* 方法2: 用[`Postman`](http://book.crifan.com/books/api_tool_postman/website)生成API文档
 * 方法3: 用`Swagger`写（设计API接口的同时就可以生成出）API文档
   * 并可生成对应的后台和前端的代码
   * 剩下只需要编写业务逻辑代码即可
