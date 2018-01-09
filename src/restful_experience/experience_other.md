@@ -89,8 +89,7 @@ Pagination的对象中，最常用到的属性就是：
     }
 ```
 
-详见：
-【已解决】Flask-Restful中如何设计分页的API
+详见：[【已解决】Flask-Restful中如何设计分页的API](http://www.crifan.com/flask_restful_how_design_paging_api)
 
 ## 是否一定要严格按照Restful的规则，用对应的http的method实现对应的功能？
 一般来说，不用非常严格的依照规则，尤其是

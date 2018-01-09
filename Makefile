@@ -22,7 +22,7 @@ endef
 # Output current makefile info
 ################################################################################
 Author=crifan.com
-Version=20171229
+Version=20171231
 Function=Auto use gitbook to generated files: website/pdf/epub/mobi; upload to remote server; commit to github io repo
 RunHelp = Run 'make help' to see usage
 $(info --------------------------------------------------------------------------------)
@@ -181,6 +181,8 @@ mobi: clean_mobi create_folder_mobi
 
 ## Generate all files: website/pdf/epub/mobi
 all: website pdf epub mobi
+	@echo ================================================================================
+	@echo Generate All for $(BOOK_NAME)
 
 # ################################################################################
 # # Compress
@@ -206,6 +208,8 @@ REMOTE_PATH=$(REMOTE_BOOKS_PATH)
 
 ## upload all genereted website/pdf/epub/mobi files to remote server using rsync. create sshpass_password.txt file to contain password before use this
 upload: all
+	@echo ================================================================================
+	@echo Upload for $(BOOK_NAME)
 	sshpass -f $(PASSWORD_FILE) rsync -avzh --progress --stats --delete --force $(OUTPUT_PATH) $(REMOTE_USER)@$(REMOTE_SERVER):$(REMOTE_PATH)
 
 
@@ -217,6 +221,8 @@ GITHUB_IO_PATH=/Users/crifan/dev/dev_root/github/github.io/crifan.github.io
 
 ## Commit generated files to github io
 commit: all
+	@echo ================================================================================
+	@echo Commit for $(BOOK_NAME)
 	rsync -avzh --progress --stats --delete --force $(OUTPUT_PATH) $(GITHUB_IO_PATH)
 	cd $(GITHUB_IO_PATH) && \
 	pwd && \
@@ -230,14 +236,14 @@ commit: all
 	cd $(CURRENT_DIR) && \
 	pwd
 
-
 ################################################################################
 # Deploy generated files to remote server and github.io repo
 ################################################################################
 
-## Deploy generated files to remote server and github.io repo
+## Deploy = Upload and Commit for generated files
 deploy: upload commit
-
+	@echo ================================================================================
+	@echo Deploy for $(BOOK_NAME)
 
 ################################################################################
 # Help
