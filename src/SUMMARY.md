@@ -5,6 +5,7 @@
   * [举例](restful_intro/example.md)
 * [RESTful API通用设计规则](restful_rule/README.md)
   * [通用设计规则](restful_rule/rule.md)
+  * [HATEOAS](restful_rule/hateoas.md)
 * [RESTful API工具和库](restful_tool/README.md)
   * [开发测试工具](restful_tool/test_tool.md)
   * [框架和库](restful_tool/framework_lib.md)

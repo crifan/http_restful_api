@@ -1,5 +1,23 @@
 # 其他RESTful API心得
 
+## 调用api时要有**http**的前缀，否则出错`Error Domain`
+
+关于其他（比如移动）端去调用REST的api时，要注意一点的是：
+
+记得url地址写全了，最前面要加上`http`或`https`的前缀， 比如：
+
+`http://115.29.173.126:21084/runningfast/api/v1.0/open/smscode`
+
+否则，如果漏了，变成：
+
+`115.29.173.126:21084/runningfast/api/v1.0/open/smscode`
+
+就会报错：
+
+`FAILURE: Error Domain=NSURLErrorDomain Code=-1002 unsupported URL`或`URL not supported`
+
+详见：[【已解决】iOS端用Alamofire访问Flask的rest的api出错：Error Domain=NSURLErrorDomain Code=-1002](http://www.crifan.com/ios_alamofire_http_error_domain_nsurlerrordomain_code_1002)
+
 ## api中是否一定要加版本号？
 如果是为了设计长期稳定的API接口，则最好是加上版本号v1.0这种写法
 `http://[hostname]/todo/api/v1.0/`
