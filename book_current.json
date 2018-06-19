@@ -1,0 +1,19 @@
+{
+  "title": "HTTP后台端：RESTful API接口设计",
+  "description": "总结HTTP后台方面的RESTful API方面的知识",
+  "pluginsConfig": {
+    "github-buttons": {
+      "buttons": [
+        {
+          "repo": "http_restful_api"
+        }
+      ]
+    },
+    "sitemap-general": {
+      "prefix": "https://book.crifan.com/gitbook/http_restful_api/website/"
+    },
+    "toolbar-button": {
+      "url": "http://book.crifan.com/books/http_restful_api/pdf/http_restful_api.pdf"
+    }
+  }
+}
