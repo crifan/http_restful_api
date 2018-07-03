@@ -27,7 +27,7 @@ When to use PUT or POST - The RESTful cookbook](https://restcookbook.com/HTTP%20
 * [HATEOAS - Wikipedia](https://en.wikipedia.org/wiki/HATEOAS)
 * [表现层状态转换 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/表现层状态转换)
 * [【已解决】iOS端用Alamofire访问Flask的rest的api出错：Error Domain=NSURLErrorDomain Code=-1002](http://www.crifan.com/ios_alamofire_http_error_domain_nsurlerrordomain_code_1002)
-* [【解决】选择好的Flask的REST API的框架](http://www.crifan.com/choose_better_flask_rest_api_framework_lib)
+* [【已解决】选择好的Flask的REST API的框架](http://www.crifan.com/choose_better_flask_rest_api_framework_lib)
 * [Understanding HATEOAS](https://spring.io/understanding/HATEOAS)
 * [HATEOAS - Wikipedia](https://en.wikipedia.org/wiki/HATEOAS)
 * [What is HATEOAS and why is it important? - The RESTful cookbook](http://restcookbook.com/Basics/hateoas/)
