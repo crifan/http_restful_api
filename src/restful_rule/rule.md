@@ -4,13 +4,15 @@
 
 用对应的接口表示要对资源进行何种操作，想要实现什么目的：
 
-| HTTP Verb=HTTP方法 | 操作类型=CRUD | 返回值 |
-| :--- | :--- | :--- |
-| POST | Create创建 | <ul><li>正常</li><ul><li>201 (Created)</li></ul><li>异常</li><ul><li>404 (Not Found)</li><li>409 (Conflict)</li></ul>|
-| GET | Read读取 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常：</li><ul><li>404 (Not Found)</li></ul> |
-| PUT | Replace替换 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常</li><ul><li>405 (Method Not Allowed)</li><li>204 (No Content)</li><li>404 (Not Found)</li></ul> |
-| PATCH | Update/Modify更新 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常</li><ul><li>405 (Method Not Allowed)</li><li>204 (No Content)</li><li>404 (Not Found)</li></ul> |
-| DELETE | Delete删除 | <ul><li>正常：</li><ul><li>200 (OK)</li><li>204 (No Content)</li></ul><li>异常：</li><ul><li>404 (Not Found)</li><li>405 (Method Not Allowed)</li></ul> |
+| HTTP Verb=HTTP Method=HTTP方法 | 操作类型=CRUD | 可能返回的状态码 | 是否幂等Idempotent | 是否安全Safe |
+| :--- | :--- | :--- | :--- | :--- |
+| OPTIONS | 询问该接口/端点支持哪些方法 | 200 OK | 是 | 是 |
+| POST | Create创建 | <ul><li>正常</li><ul><li>201 (Created)</li></ul><li>异常</li><ul><li>404 (Not Found)</li><li>409 (Conflict)</li></ul>| 否 | 否 |
+| GET | Read读取 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常：</li><ul><li>404 (Not Found)</li></ul> | 是 | 是 |
+| HEAD | 同GET但是返回BODY为空 | 同GET | 是 | 是 |
+| PUT | Replace替换 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常</li><ul><li>405 (Method Not Allowed)</li><li>204 (No Content)</li><li>404 (Not Found)</li></ul> | 是 | 否 |
+| PATCH | Update/Modify更新 | <ul><li>正常：</li><ul><li>200 (OK)</li></ul><li>异常</li><ul><li>405 (Method Not Allowed)</li><li>204 (No Content)</li><li>404 (Not Found)</li></ul> | 否 | 否 |
+| DELETE | Delete删除 | <ul><li>正常：</li><ul><li>200 (OK)</li><li>204 (No Content)</li></ul><li>异常：</li><ul><li>404 (Not Found)</li><li>405 (Method Not Allowed)</li></ul> | 是 | 否 |
 
 ## 举例：RESTful的某个类似于外卖的项目的API
 
@@ -52,7 +54,7 @@ HTTP的**官方**规范定义中，其实是：
 | `PUT` | 把某个资源的**整体**的信息**替换**掉 | 该资源的 **全部** 的字段 | 换言之：当某些字段没有传的话，则直接设置为`null` |
 | `PATCH` | 把某个资源的**部分**信息**更新**掉 | 该资源的（你想要更新数据的那）**部分**的字段 | `PATCH`是在`PUT`之后才提出来，进入官方规范的。目的就是，只更新你传了值的那些字段，保留其他字段的已有的值 |
 
-> #### warning:: 最佳实践==大家的实际做法
+> #### Info:: 最佳实践==大家的实际做法
 > 
 > 只不过，现在大家的常见的，实际的做法往往是：
 >
@@ -141,3 +143,49 @@ PUT /user/some_user_id
 * **HTTP协议规范**：`POST`创建成功后，应该返回201，以及对应的新的资源的`id`
     * 用户再通过新建资源的`id`，去获取资源详情
 * **最佳实践**：大家实际的常见做法则是，直接返回新建资源的所有的详情的`json`，其中包括`id`
+
+### `DELETE`应该返回什么？
+
+综合[官网](https://tools.ietf.org/html/rfc7231#section-4.3)和其他文档后，`REST`服务器端对于`DELETE`请求应该返回什么`状态码`，以及具体返回什么值，详细解释如下：
+
+* `202`=`Accepted`：表示接受了此删除请求
+    * 但是暂时还没执行
+    * 或者目前执行删除动作，但是还没有完成
+        * 之后（服务器端）会完成删除动作
+* `204`=`No Content`：已经执行了删除动作，内容被删除了，没有内容了
+    * response的body中是空的
+    * 注意：如果要实现`HATEOAS`的REST的接口，则尽量避免DELETE返回`204`
+        * 详见：[rest - RESTful API: Delete Entity - What should I return as result? - Stack Overflow](https://stackoverflow.com/questions/50792505/restful-api-delete-entity-what-should-i-return-as-result)
+* `200`=`OK`：内容已删除，同时返回body信息，包含具体的删除的详情
+    * response的body中包含额外关于删除的相关信息
+        * 比如之前帖子中提到的，删除了具体哪个内容，已删除的状态，甚至删除了符合对应条件的多个内容等等
+
+目前自己所理解的最佳实践是第三种：
+* **返回状态码**：`200`=`OK`
+* **返回什么值**：根据之前的最佳实践：code、message、data，应该返回：
+
+```json
+{
+  "code": 200,
+  "message": "Question deleted for id 5c1777e1cc6df4563adf4a50",
+  "data": {
+    "deletedCount": 1
+  }
+}
+```
+
+且更加细节的做法是：当检测到想要删除一个已经删除的内容，则提示已经删除了：
+
+```json
+{
+  "code": 200,
+  "message": "Question already deleted for id 5c1777e1cc6df4563adf4a50",
+  "data": {
+    "deletedCount": 0
+  }
+}
+
+```
+
+> #### note:: 详见帖子
+> [【已解决】Flask的REST接口的最佳实践中DELETE应该返回什么](http://www.crifan.com/flask_rest_api_best_practice_of_delete_should_response)

@@ -13,7 +13,7 @@
 
 找个例子来比喻，就容易理解了：
 
-### `HATEOAS`的例子
+### 举例解释`HATEOAS`
 
 比如有个`用户`的对象，或者说**资源**，定义是：
 
@@ -64,6 +64,11 @@ class Customer {
 -> **而这种超链接方式的api用于告诉用户：该资源的只允许哪些操作（比如`GET`,`POST`)，以及不允许哪些操作（比如`DELETE`）**
 
 -> 从而达到方便用户更加清楚使用你的接口的目的
+
+## 其他`HATEOAS`实例
+
+* [Eve (Python)](https://docs.mongodb.com/ecosystem/tools/http-interfaces/#eve-python)
+* [RESTHeart (Java)](https://docs.mongodb.com/ecosystem/tools/http-interfaces/#restheart-java)
 
 ## 关于`HATEOAS`的最佳实践：**不用`HATEOAS`**
 
